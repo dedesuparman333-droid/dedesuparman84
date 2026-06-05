@@ -5,6 +5,10 @@ import Link from 'next/link';
 
 export const revalidate = 0; // Disable caching for the portfolio to always show latest projects
 
+// Note: Replace the empty string below with your actual Base64 string of the uploaded photo.
+// Example: const profileImageBase64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQ..."
+const profileImageBase64 = "";
+
 export default async function Portfolio() {
   // Fetch projects from Supabase
   let projects: any[] = [];
@@ -86,7 +90,7 @@ export default async function Portfolio() {
                 
                 {/* Photo Placeholder / Area */}
                 <Image 
-                    src="https://picsum.photos/seed/dede/600/600" 
+                    src={profileImageBase64 || "https://picsum.photos/seed/dede/600/600"} 
                     width={600} 
                     height={600} 
                     alt="Dede Suparman avatar" 
